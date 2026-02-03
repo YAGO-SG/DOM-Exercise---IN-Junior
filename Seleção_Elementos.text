@@ -1,0 +1,108 @@
+getElementById: Recebe com parametro um id, do arquivo html, e procura este id dentro do arquivo html
+formato: 
+    let secção = document.getElementById("Nome do id")
+ele pega toda a tag, que o id representa, e armazena na variável secção. Os filhos desta tag também são armazenados
+
+
+getElementsByClassName: Dado o nome da class que você queira buscar no arquivo HTML, esta função retorna todas as tags que tiverem com aquela class 
+    formato: let class = document.getElementsByClassName("Nome da classe")
+
+
+querySelector: tem a função de armazenar tanto tags representados por ID quanto por Class, porém so a primeira que aparecer, mesmo sendo class.
+    formato: let id = document.querySelector("#nome do id")
+             let class = document.querySelector(".nome da classe")
+So irá pegar uma tag.
+
+querySelectorAll: tem quase a mesma função do querySelector, porém, este comando selecionar um array de todas as tag que tiverem com aquela representação(id ou class)
+formato: let idall = document.querySelectorAll("#nome do id")
+         let classal = document.querySelectorAll(".nome da class")
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+innerHTML: armazena dentro da variável todo o elemento que está dentro daquela tag que estamos representando pelo id, em formato de texto.
+definindo nossa variável: let tag = document.querySector(".Nome da classe")
+para acessar tudo o que tem dentro daquela classe, usamos: tag.innerHTML
+para modificar, podemos fazer: tag.innverHTML = "Modificação"
+Colocar aspas simples, dentro do tag.innerHTML, quando for modificar
+
+innerText: ele nos retorna todos o texto que esta dentro da tag, que estamos acessando através do id ou class
+let tag = document.querySector(".Nome da classe")
+console.log(tag.innerText): irá retornar o texto que estiver dentro da tag
+
+Atrubutos: temos a capacidade de modificar qualquer atributo de qualquer elemento. 
+let tag = document.querySector(".Nome da classe")
+tag.class="Modificar nome da class"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+addEventListener: espera uma ação acontecer (ação definida pelo desenvolvedor) e define o que irá acontecer a partir daquela interação com a tag.
+exemplo: let div = document.querrySelector(".nome da classe")
+div.addEventListener("defini qual interação", ()=>{
+    define a função para quando acha a interação
+})
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+parentElement: outra tecnica de selecionar tag, dado uma variável que armazena um tag e seus filhos, utilizando este comando, podemos armazenar o pai dessa tag e seus filhos
+formato: let tag = document.querrySelector("nome da classe")
+         console.log(tag.parentElement)
+irá retornar a tag pai e seus filhos
+
+firstElementChild: armazenado uma tag pai em uma variável, ao utilizar esta função, ela irá nos retornar a primeira tag filho e seus filhor
+
+firstChild: igual o de cima, porem não retornar, necessariamente a tag filho, mas qualquer primeira coisa que estiver em baixo do pai, seja texto, tag...
+
+lastElementChild: Use a lógica
+
+lastChild: Use a lógica
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+CRIANDO E REMOVENDO ELEMENTOS
+-createElement: Logicamente, usamos para criar tag.
+formato: let div = document.createElement("div")
+         console.log("div") 
+Irá nos retornar: '<div></div>
+
+-append: com o exemplo de cima, podemos colocar tag ou textox dentro daquela div, ou qualquer tag que esteja no HTML.
+exemplo: let texto = document.createElement("p")
+         texto.innerText = "Paraiba"
+         div.append("texto")
+iremos ter como retorno: <div><p>Paraiba</p></div>
+
+-Como remover aquele <p>Paraiba</p>: basta definir que não tem nada dentro dele:
+    exemplo: div.innerHTML = "";
+resultado: <div></div>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+MANIPULAÇÃO DE CLASSES
+Deve-se utilizar estes comandos junto com um outro chamado 'classlist'
+contexto:
+    let tag = document.querrySelector(.nome da class)
+    let tag2 = document.createElement("div")   
+    tag.append("tag2")
+Resultado: temos uma tag com uma div dentro dela, e essa div não tem classe alguma para representá-la
+
+-add: tem a função de adicionar uma classe dentro de um elemento
+exemplo:
+     tag2.classList.add("box")
+resultado: adiciona uma classe chamada "box" dentro da tag "tag2"
+
+-remove: Remove uma classe ja existente dentro dentro da tag.
+exemplo:
+    tag2.classList.remove("box")
+resultado: remove a classe chamada box que a gente tinha adicionado dentro da tag2
+
+-contains: Nos retorna um resultado booleano de 'True' ou 'False', dependendo se determinado nome de classe ja pertence a nossa tag
+exemplo: 
+    tag2.classList.add("box");
+    console.log(tag2.classList.contains("box")); -- ela verifica se tem uma classe chamada box dentro da tag2 --
+resultado: retorna para o console um valor 'True'
+
+-toggle: faz duas coisa: 1. se tiver esta determinada classe dentro da tag, ele remove 2. se não tiver essa determinada classe dentro da tag, ele adiciona.
+exemplo: 
+    tag2.classList.toggle("container");
+    tag2.classList.toogle("box");
+resultado: como não temos a class "container" ele irá criar e colocar dentro da tag2. E como ja temos a classe "box", ele irá remover esta classe da tag2
+
+-replace: tem a função de substituir CLASSES
+exemplo: 
+    tag2.classList.replace("container", "box");
+resultado: troca a classe "container" pela classe "box" dentro da tag2 

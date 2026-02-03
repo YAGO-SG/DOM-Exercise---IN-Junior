@@ -101,6 +101,10 @@ main {
 }
 
 .ContMedia {
+    display: none;
+}
+
+.ContMediaOn {
     background-color: #F0FDF4;
     height: 70px;
     display: flex;
@@ -108,16 +112,10 @@ main {
     align-items: center;
     border-radius: 8px;
     border: 1px solid rgb(249, 176, 176);
-    display: none;
 }
 
 .CalcMedia:hover {
     box-shadow: 5px 5px 5px rgb(173, 171, 171);
-}
-
-
-.CalcMedia:focus-within + .ContMedia{
-    display:flex;
 }
 
 .Resultado {
